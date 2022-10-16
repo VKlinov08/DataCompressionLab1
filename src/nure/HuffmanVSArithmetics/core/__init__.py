@@ -1,0 +1,1 @@
+from src.nure.HuffmanVSArithmetics.core.tests import test_huffman_compression, test_arithmetic_compression

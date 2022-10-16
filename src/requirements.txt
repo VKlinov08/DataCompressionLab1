@@ -1,0 +1,2 @@
+bitarray==2.6.0
+pyfiglet==0.8.post1
