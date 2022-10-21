@@ -70,7 +70,12 @@ class ArithmeticCompress:
         decoded_message = ''
         for _ in np.arange(length):
             intervals = get_intervals(self.probabilities, low, high)
-            index, interval = interval_matching(intervals, encoded_message)
+            try:
+                index, interval = interval_matching(intervals, encoded_message)
+            except TypeError:
+                print("Not enough precision! None interval is matched! ")
+                break
+
             high = interval[1]
             low = interval[0]
             decoded_message += self.characters[index]
