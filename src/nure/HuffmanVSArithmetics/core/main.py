@@ -8,11 +8,14 @@ INPUT_FILE_PATH3 = r'D:\PYTHON\PyWorkspace\DataCompressionLab1\recources\input_m
 
 
 if __name__ == '__main__':
+    current_path = input('Input path to text file:\n>>> ')
+    input_path = current_path if current_path != '' else INPUT_FILE_PATH
     current_encoding = input('Input encoding: ')
-    with io.open(INPUT_FILE_PATH, 'r', encoding=current_encoding) as file:
+    current_encoding = current_encoding if current_encoding != '' else 'utf-8'
+    with io.open(input_path, 'r', encoding=current_encoding) as file:
         message = ''.join(file.readlines())
 
-    test_huffman_compression(message, INPUT_FILE_PATH)
-    test_arithmetic_compression(message, INPUT_FILE_PATH, precision=695)
+    test_huffman_compression(message, input_path)
+    test_arithmetic_compression(message, input_path, precision=800)
 
 
